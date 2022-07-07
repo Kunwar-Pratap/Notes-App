@@ -1,4 +1,5 @@
 notesShow();
+
 let btnMain = document.getElementById('btnMain');
 btnMain.addEventListener('click', function (e) {
     let noteText = document.getElementById('noteText');
@@ -15,7 +16,6 @@ btnMain.addEventListener('click', function (e) {
     notesShow();
 });
 
-//  Function to show elements from local storage
 function notesShow() {
     let notes = localStorage.getItem('notes');
     if (notes == null) {
@@ -37,7 +37,8 @@ function notesShow() {
         </div>
         `;
     });
-    let notesElmnt= document.getElementById('notes');
+    
+    let notesElmnt = document.getElementById('notes');
     if (notesData.length != 0) {
         notesElmnt.innerHTML = html;
     }
@@ -46,7 +47,6 @@ function notesShow() {
     }
 }
 
-// function to delete a note
 function deleteNote(index) {
     let notes = localStorage.getItem('notes');
     if (notes == null) {
@@ -64,12 +64,12 @@ let searchVal = document.getElementById('searchVal');
 searchVal.addEventListener('input', function () {
     let inputVal = searchVal.value.toLowerCase();
     let noteDocks = document.getElementsByClassName('noteDock');
-    Array.from(noteDocks).forEach(function(element){
+    Array.from(noteDocks).forEach(function (element) {
         let cardText = element.getElementsByTagName('p')[0].innerText;
-        if(cardText.includes(inputVal)){
+        if (cardText.includes(inputVal)) {
             element.style.display = 'block';
         }
-        else{
+        else {
             element.style.display = 'none';
         }
     });
